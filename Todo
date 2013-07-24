@@ -1,4 +1,3 @@
 TODO list for Perl module File::RegexMatch
 
-- Need to comment code.
 - Add option to ignore files based on a regular expression.
