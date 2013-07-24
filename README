@@ -8,3 +8,11 @@ Further documentation can be found on the CPAN (http://search.cpan.org/~lloydg).
 INSTALLATION:
     perl Makefile.PL
     make test install clean all
+    
+PREREQUISITES
+    Test::Simple  => 0.44
+    Cwd           => 3.12
+    Carp          => 1.04
+    File::Spec    => 3.12
+    Tie::IxHash   => 1.23
+    File::stat    => 0
