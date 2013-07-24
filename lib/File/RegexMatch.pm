@@ -40,12 +40,12 @@ sub match {
     }
 
     my @matched = ();
-    my %match_refs = $self->__populate(
+    my %matched_refs = $self->__populate(
         $opts{base_directory}, $opts{regex_pattern}, $opts{include_hidden}
     );
 
-    while (my ($key, $value) = each %match_refs) {
-        foreach (@{$match_refs{$key}}) {
+    while (my ($key, $value) = each %matched_refs) {
+        foreach (@{$matched_refs{$key}}) {
             push @matched, File::RegexMatch::File->new(
                 path => File::Spec->catfile($key, $_)
             );
