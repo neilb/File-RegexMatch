@@ -44,14 +44,14 @@ sub match {
         $opts{base_directory}, $opts{regex_pattern}, $opts{include_hidden}
     );
 
-    foreach my $key (keys %matched_refs) {
-        foreach (@{$matched_refs{$key}}) {
+    while (my ($key, $value) = each %matched_refs) {
+        foreach (@{$value}) {
             push @matched, File::RegexMatch::File->new(
                 path => File::Spec->catfile($key, $_)
             );
         }
     }
-
+    
     return @matched;
 }
 
