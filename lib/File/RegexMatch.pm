@@ -39,20 +39,20 @@ sub match {
         $opts{$key} = $value if exists $opts{$key};
     }
 
-    my @return = ();
+    my @matched = ();
     my %match_refs = $self->__populate(
         $opts{base_directory}, $opts{regex_pattern}, $opts{include_hidden}
     );
 
     while (my ($key, $value) = each %match_refs) {
         foreach (@{$match_refs{$key}}) {
-            push @return, File::RegexMatch::File->new(
+            push @matched, File::RegexMatch::File->new(
                 path => File::Spec->catfile($key, $_)
             );
         }
     }
 
-    return @return;
+    return @matched;
 }
 
 sub __populate {
