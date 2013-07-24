@@ -44,7 +44,7 @@ sub match {
         $opts{base_directory}, $opts{regex_pattern}, $opts{include_hidden}
     );
 
-    while (my ($key, $value) = each %matched_refs) {
+    foreach my $key (keys %matched_refs) {
         foreach (@{$matched_refs{$key}}) {
             push @matched, File::RegexMatch::File->new(
                 path => File::Spec->catfile($key, $_)
@@ -67,6 +67,7 @@ sub __populate {
         @base = glob "*";
     }
 
+    # Tie the hash to keep it ordered
     tie %directories, "Tie::IxHash";
     $self->__collect($pattern, \@base, \@matches, \%directories);
     $self->__feedback(scalar @matches) if $self->{verbose} and scalar @matches;
@@ -102,8 +103,10 @@ sub __collect {
         if (m/^(\.|\.\.)$/) {
             next;
         } elsif (-d) {
+            # Add each directories to the hash
             $directories->{File::Spec->catfile(cwd(), $_)} = undef;
         } elsif (m/$pattern/) {
+            # If the file matches the regex pattern push it onto the array
             push @{$matches}, $_;
         } else {
             next;
@@ -124,7 +127,6 @@ __END__
 
 File::RegexMatch - Module to help locate files using regular expressions.
 
-
 =head1 SYNOPSIS
 
 #!/usr/bin/env perl -w
@@ -140,14 +142,12 @@ foreach (File::RegexMatch->new(verbose => 1)->match(
     print $_->path() . "\n";
 }
 
-
 =head1 DESCRIPTION
 
 This module provides the functionality to traverses a directory tree
 and return an array of File::RegexMatch::File objects. Each file that
 is returned has a filename that matches the regular expression that is
 passed to the C<match> subroutine.
-
 
 =head1 METHODS
 
@@ -172,21 +172,17 @@ file names against. The default value of this parameter is C< qr/.*/ >.
 The C<include_hidden> parameter should be set to true if the method should
 include hidden files in its search. By default it is set to false.
 
-
 =head1 SEE ALSO
 
 File::Find
-
 
 =head1 BUGS
 
 Please report any bugs or feature requests to lloydg@cpan.org
 
-
 =head1 AUTHOR
 
 Lloyd Griffiths
-
 
 =head1 COPYRIGHT
 
