@@ -211,7 +211,7 @@ Lloyd Griffiths
 
 =head1 COPYRIGHT
 
-Copyright (c) 2011-2013, Lloyd Griffiths
+Copyright (c) 2013, Lloyd Griffiths
 
 This program is free software; you can redistribute
 it and/or modify it under the same terms as Perl itself.
