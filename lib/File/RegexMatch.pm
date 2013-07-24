@@ -101,6 +101,7 @@ sub __populate {
         @matches = ();
     }
 
+    # Return to the initial directory
     chdir $directory;
     return %matches;
 }
