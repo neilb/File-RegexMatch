@@ -12,7 +12,7 @@ require Exporter;
 
 our @ISA = qw(Exporter);
 our @EXPORT = qw(new match);
-our $VERSION = '0.04';
+our $VERSION = '0.1';
 
 sub new {
     my ($class, %params) = @_;
@@ -51,7 +51,7 @@ sub match {
             );
         }
     }
-    
+
     return @matched;
 }
 
@@ -69,15 +69,15 @@ sub __populate {
 
     # Tie the hash to keep it ordered
     tie %directories, "Tie::IxHash";
-    
+
     # Collect files and directories from the base directory
     $self->__collect($pattern, \@base, \@matches, \%directories);
     $self->__feedback(scalar @matches) if $self->{verbose} and scalar @matches;
-    
+
     # Assign the matching files to the hash if there are any
     $matches{cwd()} = [@matches] if @matches;
-    
-    # Unset the matches ready for the next directory 
+
+    # Unset the matches ready for the next directory
     @matches = ();
 
     while (my ($key, $value) = each %directories) {
@@ -95,7 +95,7 @@ sub __populate {
         $self->__feedback(scalar @matches) if $self->{verbose} and scalar @matches;
         $matches{$key} = [@matches] if @matches;
         $directories{$key} = [@files] if @files;
-        
+
         # Unset the arrays ready for the next iteration
         @files = ();
         @matches = ();
