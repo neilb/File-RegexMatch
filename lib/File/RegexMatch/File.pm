@@ -98,105 +98,96 @@ File::RegexMatch::File->new(path => '/path/to/file');
 
 This module allows each file that has been located by File::RegexMatch
 to be represented by an object. The object has methods for retrieving
-information about the file using the File::stat module.
+information about the file using the File::stat module. There are 
+different levels of support for certain filesystems. See 
+L<stat|http://perldoc.perl.org/functions/stat.html> for further information.
 
 
 =head1 METHODS
 
-=over
+=head3 new
 
-=item C<< new >>
+Constructor for the object. Takes one parameter, which is the path of 
+the file. The library will croak if stat cannot be called on the file
+path.
 
-=back
+=head3 path
 
-=over
+Returns the absolute path of the file.
 
-=item C<< path >>
 
-=back
+=head3 dev
 
-=over
+Returns the device number of the filesystem.
 
-=item C<< dev >>
 
-=back
+=head3 ino
 
-=over
+Returns the inode number.
 
-=item C<< ino >>
 
-=back
+=head3 mode
 
-=over
+Returns the type and permissions of the file.
 
-=item C<< mode >>
 
-=back
+=head3 nlink
 
-=over
+Returns the number of hard links to the file.
 
-=item C<< nlink >>
 
-=back
+=head3 uid
 
-=over
+Returns the numeric user ID of the file owner.
 
-=item C<< uid >>
 
-=back
+=head3 gid
 
-=over
+Returns the numeric group ID of the file owner.
 
-=item C<< gid >>
 
-=back
+=head3 rdev
 
-=over
+Returns the device identifer.
 
-=item C<< rdev >>
 
-=back
+=head3 size
 
-=over
+Returns the total size of the file in bytes.
 
-=item C<< size >>
 
-=back
+=head3 atime
 
-=over
+Returns the last access time in seconds since the epoch.
 
-=item C<< atime >>
 
-=back
+=head3 mtime
 
-=over
+Returns the last modify time in seconds since the epoch.
 
-=item C<< mtime >>
 
-=back
+=head3 ctime
 
-=over
+Returns the incode change time in seconds since the epoch.
 
-=item C<< ctime >>
 
-=back
+=head3 blksize
 
-=over
+Returns the preferred I/O size in bytes for interacting with the file.
 
-=item C<< blksize >>
 
-=back
+=head3 blocks
 
-=over
-
-=item C<< blocks >>
-
-=back
+Returns the actual number of system-specific blocks allocated on the 
+disk.
 
 
 =head1 SEE ALSO
 
 File::stat
+
+L<stat|http://perldoc.perl.org/functions/stat.html>
+
 
 
 =head1 BUGS

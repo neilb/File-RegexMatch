@@ -146,43 +146,37 @@ foreach (File::RegexMatch->new(verbose => 1)->match(
 This module provides the functionality to traverses a directory tree
 and return an array of File::RegexMatch::File objects. Each file that
 is returned has a filename that matches the regular expression that is
-passed to the C<< match() >> subroutine.
+passed to the C<match> subroutine.
 
 
 =head1 METHODS
 
-=over
-
-=item C<< new >>
+=head3 new
 
 Instantiates and returns a new File::RegexMatch object. An optional
 argument for verbose can be passed to the constructor. Verbose property
 value is 0 (false) by default.
 
-=back
+=head3 match
 
-=over
+This method takes up to three parameter, C< base_directory >, C< regex_pattern >
+and C< include_hidden >.
 
-=item C<< match >>
-
-This method takes up to three parameter, C<base_directory>, C<regex_pattern>
-and C<include_hidden>.
-
-The C<base_directory> parameter defines the directory which the method should
+The C< base_directory > parameter defines the directory which the method should
 start traversing. An absolute or relative path can be used. The default value
-for this is $ENV{HOME}, the users home directory.
+for this is C< $ENV{HOME} > - the users home directory.
 
 The C<regex_pattern> parameter is the regular expression that you wish to match
-file names against. The default value of this parameter is C<< qr/.*/ >>.
+file names against. The default value of this parameter is C< qr/.*/ >.
 
 The C<include_hidden> parameter should be set to true if the method should
 include hidden files in its search. By default it is set to false.
 
-=back
 
 =head1 SEE ALSO
 
-File::RegexMatch::File
+File::Find
+
 
 =head1 BUGS
 
@@ -196,9 +190,9 @@ Lloyd Griffiths
 
 =head1 COPYRIGHT
 
-Copyright (c) 2011-2013, Lloyd Griffiths
+Copyright (c) 2011-2013 Lloyd Griffiths
 
-This program is free software; you can redistribute
+This library is free software; you can redistribute
 it and/or modify it under the same terms as Perl itself.
 
 =cut
