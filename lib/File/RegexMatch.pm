@@ -96,9 +96,9 @@ sub __populate {
 }
 
 sub __collect {
-    my ($self, $pattern, $item, $matches, $directories) = @_;
+    my ($self, $pattern, $items, $matches, $directories) = @_;
 
-    foreach (@{$item}) {
+    foreach (@{$items}) {
         if (m/^(\.|\.\.)$/) {
             next;
         } elsif (-d) {
