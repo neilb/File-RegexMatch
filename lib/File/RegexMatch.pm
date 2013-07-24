@@ -103,7 +103,7 @@ sub __collect {
         if (m/^(\.|\.\.)$/) {
             next;
         } elsif (-d) {
-            # Add each directories to the hash
+            # Add each directory to the hash
             $directories->{File::Spec->catfile(cwd(), $_)} = undef;
         } elsif (m/$pattern/) {
             # If the file matches the regex pattern push it onto the array
