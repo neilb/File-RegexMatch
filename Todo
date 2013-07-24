@@ -1,0 +1,6 @@
+TODO list for Perl module File::RegexMatch
+
+- Need to comment code.
+- Finish off documentation for File::RegexMatch (hyperlinks mainly).
+- Documentation for File::RegexMatch::File methods.
+- Add option to ignore files based on a regular expression.
