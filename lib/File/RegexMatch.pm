@@ -76,6 +76,8 @@ sub __populate {
     
     # Assign the matching files to the hash if there are any
     $matches{cwd()} = [@matches] if @matches;
+    
+    # Unset the matches ready for the next directory 
     @matches = ();
 
     while (my ($key, $value) = each %directories) {
