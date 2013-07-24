@@ -8,9 +8,9 @@ WriteMakefile(
     LICENSE      => 'perl',
     PREREQ_PM    => {
                         'Test::Simple'  => 0.44,
-                        'Cwd'           => 3.40,
-                        'Carp'          => 1.26,
-                        'File::Spec'    => 3.40,
+                        'Cwd'           => 3.12,
+                        'Carp'          => 1.04,
+                        'File::Spec'    => 3.12,
                         'Tie::IxHash'   => 1.23,
                         'File::stat'    => 0,
                     },
