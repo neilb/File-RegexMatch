@@ -16,7 +16,7 @@ our $VERSION = '0.04';
 
 sub new {
     my ($class, %params) = @_;
-    my ($self) = {
+    my $self = {
         verbose => 0
     };
 
@@ -29,7 +29,7 @@ sub new {
 
 sub match {
     my ($self, %params) = @_;
-    my (%opts) = (
+    my %opts = (
         base_directory => $ENV{HOME},
         regex_pattern  => qr/.*/,
         include_hidden => 0,
