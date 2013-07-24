@@ -69,8 +69,12 @@ sub __populate {
 
     # Tie the hash to keep it ordered
     tie %directories, "Tie::IxHash";
+    
+    # Collect files and directories from the base directory
     $self->__collect($pattern, \@base, \@matches, \%directories);
     $self->__feedback(scalar @matches) if $self->{verbose} and scalar @matches;
+    
+    # Assign the matching files to the hash if there are any
     $matches{cwd()} = [@matches] if @matches;
     @matches = ();
 
@@ -84,10 +88,13 @@ sub __populate {
             @files = glob "*";
         }
 
+        # Collect files and directories from the current directory
         $self->__collect($pattern, \@files, \@matches, \%directories);
         $self->__feedback(scalar @matches) if $self->{verbose} and scalar @matches;
         $matches{$key} = [@matches] if @matches;
         $directories{$key} = [@files] if @files;
+        
+        # Unset the arrays ready for the next iteration
         @files = ();
         @matches = ();
     }
