@@ -28,7 +28,7 @@ sub new {
 }
 
 sub match {
-    my ($self, %params) = @_, undef;
+    my ($self, %params) = @_;
     my (%opts) = (
         base_directory => $ENV{HOME},
         regex_pattern  => qr/.*/,
