@@ -171,7 +171,6 @@ File::stat
 
 L<stat|http://perldoc.perl.org/functions/stat.html>
 
-
 =head1 BUGS
 
 Please report any bugs or feature requests to lloydg@cpan.org
@@ -184,7 +183,7 @@ Lloyd Griffiths
 
 Copyright (c) 2013 Lloyd Griffiths
 
-This library is free software; you can redistribute
+This software is free software; you can redistribute
 it and/or modify it under the same terms as Perl itself.
 
 =cut
