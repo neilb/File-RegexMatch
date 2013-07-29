@@ -126,7 +126,7 @@ sub __collect {
             push @{$matches}, $_;
         } elsif (not defined $ignore_pattern and m/$match_pattern/) {
             # If the file matches the regex pattern and
-            # we're not ignoring any patter, push it onto
+            # we're not ignoring any pattern, push it onto
             # the matches array.
             push @{$matches}, $_;
         } else {
